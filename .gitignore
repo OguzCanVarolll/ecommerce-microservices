@@ -1,0 +1,62 @@
+# ========================
+# JAVA / SPRING BOOT
+# ========================
+target/
+*.jar
+*.war
+*.class
+
+# ========================
+# LOG FILES
+# ========================
+*.log
+logs/
+
+# ========================
+# IDE - IntelliJ
+# ========================
+.idea/
+*.iml
+*.iws
+out/
+
+# ========================
+# IDE - Eclipse
+# ========================
+.classpath
+.project
+.settings/
+
+# ========================
+# IDE - VS Code
+# ========================
+.vscode/
+
+# ========================
+# MAVEN / GRADLE
+# ========================
+.mvn/
+.mvnw
+.gradle/
+build/
+
+# ========================
+# ENV / CONFIG SENSITIVE
+# ========================
+.env
+application-local.yml
+application-local.properties
+
+# ========================
+# OS FILES
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# SECURITY / KEYS
+# ========================
+*.pem
+*.key
+*.p12
+*.jks
