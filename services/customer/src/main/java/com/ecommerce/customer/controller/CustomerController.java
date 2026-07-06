@@ -20,8 +20,11 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<String> createCustomer(@RequestBody @Valid CustomerRequest request){
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.createCustomer(request));
+        String customerId = service.createCustomer(request);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(new CustomerCreatedResponse(customerId));
     }
     @PutMapping("/{customer-id}")
     public ResponseEntity<Void> updateCustomer( @PathVariable("customer-id") String customerId,

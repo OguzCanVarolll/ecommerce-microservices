@@ -7,6 +7,5 @@ public record CustomerResponse (
         String firstname,
         String lastname,
         String email,
-        Address address
-
+        AddressResponse address
 ){}

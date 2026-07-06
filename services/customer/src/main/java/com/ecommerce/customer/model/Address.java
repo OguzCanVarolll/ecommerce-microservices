@@ -1,8 +1,8 @@
 package com.ecommerce.customer.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
-import org.springframework.validation.annotation.Validated;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,5 +17,6 @@ public class Address {
     private String houseNumber;
 
     @NotBlank
+    @Pattern(regexp = "\\d{5}", message = "zipCode must be 5 digits")
     private String zipCode;
 }

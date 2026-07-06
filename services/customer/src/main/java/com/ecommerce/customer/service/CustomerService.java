@@ -9,7 +9,6 @@ import com.ecommerce.customer.model.Customer;
 import com.ecommerce.customer.repository.CustomerRepository;
 import com.mongodb.DuplicateKeyException;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,9 +23,6 @@ public class CustomerService {
     private final CustomerMapper mapper;
     //TOCTOU
     public String createCustomer(CustomerRequest request){
-        if (repository.existsByEmail(request.email())) {
-            throw new EmailAlreadyExistsException("Email already exists");
-        }
         try {
             var customer = repository.save(mapper.toCustomer(request));
             return customer.getId();
