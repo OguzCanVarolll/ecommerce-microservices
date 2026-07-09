@@ -1,5 +1,6 @@
 package com.ecommerce.customer.mapper;
 
+import com.ecommerce.customer.dto.AddressResponse;
 import com.ecommerce.customer.dto.CustomerRequest;
 import com.ecommerce.customer.dto.CustomerResponse;
 import com.ecommerce.customer.model.Customer;
@@ -14,7 +15,6 @@ public class CustomerMapper {
             return null;
         }
         return Customer.builder()
-                .id(request.id())
                 .firstname(request.firstname())
                 .lastname(request.lastname())
                 .email(request.email().toLowerCase(Locale.ROOT))
@@ -28,7 +28,11 @@ public class CustomerMapper {
                 customer.getFirstname(),
                 customer.getLastname(),
                 customer.getEmail(),
-                customer.getAddress()
+                new AddressResponse(
+                        customer.getAddress().getStreet(),
+                        customer.getAddress().getHouseNumber(),
+                        customer.getAddress().getZipCode()
+                )
         );
     }
 }
